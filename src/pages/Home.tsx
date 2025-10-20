@@ -10,29 +10,29 @@ export default function Home() {
 
       <main className="main-content">
         <div className="features-grid">
-          <div className="feature-card">
+          <Link to="/questionnaire" className="feature-card">
             <div className="feature-icon">📋</div>
             <h3>Dynamic Questions</h3>
             <p>Questions adapt based on previous answers using conditional logic</p>
-          </div>
+          </Link>
 
-          <div className="feature-card">
+          <Link to="/distance-converter" className="feature-card">
             <div className="feature-icon">🔀</div>
             <h3>Path Analysis</h3>
             <p>Comprehensive analysis of all possible questionnaire paths</p>
-          </div>
+          </Link>
 
-          <div className="feature-card">
+          <Link to="/data-processor" className="feature-card">
             <div className="feature-icon">⚡</div>
             <h3>JSON Configuration</h3>
             <p>Flexible configuration system using structured JSON format</p>
-          </div>
+          </Link>
 
-          <div className="feature-card">
+          <Link to="/asteroid-finder" className="feature-card">
             <div className="feature-icon">🧪</div>
             <h3>Automated Testing</h3>
             <p>Built-in testing script to validate all possible scenarios</p>
-          </div>
+          </Link>
         </div>
 
         <div className="navigation-section">
