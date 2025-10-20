@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Analysis Tool</title>
+    <link rel="stylesheet" href="src/styles/path-analyzer.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="title">Path Analysis Tool</h1>
+        </header>
+
+        <main class="analyzer-container">
+            <div class="control-panel">
+                <button class="analyze-button" id="analyzeButton">Analyze All Paths</button>
+                <div class="stats-panel" id="statsPanel">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Paths:</span>
+                        <span class="stat-value" id="totalPaths">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Length:</span>
+                        <span class="stat-value" id="avgLength">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Max Length:</span>
+                        <span class="stat-value" id="maxLength">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <h2>Analysis Results</h2>
+                    <button class="export-button" id="exportButton" disabled>Export JSON</button>
+                </div>
+                
+                <div class="paths-container" id="pathsContainer">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">📊</div>
+                        <h3>No Analysis Yet</h3>
+                        <p>Click "Analyze All Paths" to generate the complete path analysis</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/js/questionnaire-config.js"></script>
+    <script src="src/js/questionnaire-engine.js"></script>
+    <script src="src/js/path-analyzer-engine.js"></script>
+    <script src="src/js/path-analyzer.js"></script>
+</body>
+</html>

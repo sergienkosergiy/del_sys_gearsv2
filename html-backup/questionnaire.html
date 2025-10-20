@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Questionnaire</title>
+    <link rel="stylesheet" href="src/styles/questionnaire.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="title">Interactive Questionnaire</h1>
+        </header>
+
+        <main class="questionnaire-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="questionnaire-content">
+                <div class="question-card" id="questionCard">
+                    <div class="question-text" id="questionText"></div>
+                    <div class="answers-container" id="answersContainer"></div>
+                </div>
+                
+                <div class="results-card hidden" id="resultsCard">
+                    <h2>Questionnaire Complete!</h2>
+                    <div class="results-content" id="resultsContent"></div>
+                    <button class="restart-button" id="restartButton">Start Over</button>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-button secondary" id="prevButton" disabled>Previous</button>
+                <button class="control-button primary" id="nextButton" disabled>Next</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/js/questionnaire-config.js"></script>
+    <script src="src/js/questionnaire-engine.js"></script>
+    <script src="src/js/questionnaire.js"></script>
+</body>
+</html>

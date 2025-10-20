@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Asteroid Finder</title>
+    <link rel="stylesheet" href="src/styles/asteroid-finder.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="title">3D Asteroid Finder</h1>
+            <p class="subtitle">Advanced space exploration with intelligent probe deployment</p>
+        </header>
+
+        <main class="main-content">
+            <div class="control-panel">
+                <div class="control-section">
+                    <h3>Mission Control</h3>
+                    <div class="control-buttons">
+                        <button class="control-btn primary" id="generateAsteroid">Generate New Asteroid</button>
+                        <button class="control-btn secondary" id="startSearch">Start Search</button>
+                        <button class="control-btn tertiary" id="resetMission">Reset Mission</button>
+                    </div>
+                </div>
+
+                <div class="algorithm-section">
+                    <h3>Search Algorithm</h3>
+                    <div class="algorithm-options">
+                        <label class="radio-label">
+                            <input type="radio" name="algorithm" value="binary" checked>
+                            <span>Binary Search (Optimal)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="algorithm" value="gradient">
+                            <span>Gradient Descent</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="algorithm" value="trilateration">
+                            <span>Trilateration</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <span class="stat-label">Probes Used:</span>
+                        <span class="stat-value" id="probeCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Search Status:</span>
+                        <span class="stat-value" id="searchStatus">Ready</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Accuracy:</span>
+                        <span class="stat-value" id="accuracy">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <div class="canvas-wrapper">
+                    <canvas id="spaceCanvas" width="800" height="600"></canvas>
+                    <div class="canvas-overlay">
+                        <div class="coordinates-display" id="coordinatesDisplay">
+                            <div class="coord-item">
+                                <span class="coord-label">Asteroid:</span>
+                                <span class="coord-value" id="asteroidCoords">Unknown</span>
+                            </div>
+                            <div class="coord-item">
+                                <span class="coord-label">Found:</span>
+                                <span class="coord-value" id="foundCoords">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-controls">
+                    <div class="view-controls">
+                        <button class="view-btn" id="rotateLeft">↺</button>
+                        <button class="view-btn" id="rotateRight">↻</button>
+                        <button class="view-btn" id="zoomIn">+</button>
+                        <button class="view-btn" id="zoomOut">-</button>
+                        <button class="view-btn" id="resetView">⌂</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-panel">
+                <div class="panel-header">
+                    <h3>Mission Results</h3>
+                    <button class="export-btn" id="exportResults" disabled>Export JSON</button>
+                </div>
+                <div class="results-content" id="resultsContent">
+                    <div class="empty-results">
+                        <div class="empty-icon">🚀</div>
+                        <h4>No Mission Data</h4>
+                        <p>Start a search mission to see detailed results</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Deploying Probes...</h3>
+            <p id="loadingText">Initializing search algorithms</p>
+        </div>
+    </div>
+
+    <script src="src/js/asteroid-finder-engine.js"></script>
+    <script src="src/js/asteroid-finder-visualization.js"></script>
+    <script src="src/js/asteroid-finder.js"></script>
+</body>
+</html>

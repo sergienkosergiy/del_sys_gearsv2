@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Filter & Sort System</title>
+    <link rel="stylesheet" href="src/styles/data-processor.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="title">Data Filter & Sort System</h1>
+            <p class="subtitle">Advanced JSON data processing with modular rule engine</p>
+        </header>
+
+        <main class="main-content">
+            <div class="processor-layout">
+                <div class="input-section">
+                    <div class="section-header">
+                        <h2>Input Data</h2>
+                        <div class="section-controls">
+                            <button class="control-btn" id="loadSampleData">Load Sample</button>
+                            <button class="control-btn" id="validateData">Validate</button>
+                            <button class="control-btn" id="clearData">Clear</button>
+                        </div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <textarea id="dataInput" class="data-editor" placeholder='{"data": [{"name": "John", "email": "john@mail.com"}]}'></textarea>
+                        <div class="validation-status" id="dataValidation"></div>
+                    </div>
+                </div>
+
+                <div class="rules-section">
+                    <div class="section-header">
+                        <h2>Processing Rules</h2>
+                        <div class="section-controls">
+                            <button class="control-btn" id="addRule">Add Rule</button>
+                            <button class="control-btn primary" id="processData">Process</button>
+                        </div>
+                    </div>
+                    
+                    <div class="rules-container" id="rulesContainer">
+                        <div class="rule-builder">
+                            <div class="rule-type-selector">
+                                <label class="rule-label">Rule Type:</label>
+                                <select id="ruleType" class="rule-select">
+                                    <option value="include">Include</option>
+                                    <option value="exclude">Exclude</option>
+                                    <option value="sortBy">Sort By</option>
+                                    <option value="limit">Limit</option>
+                                    <option value="transform">Transform</option>
+                                </select>
+                            </div>
+                            
+                            <div class="rule-config" id="ruleConfig">
+                                <!-- Dynamic rule configuration will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <div class="section-header">
+                        <h2>Results</h2>
+                        <div class="section-controls">
+                            <button class="control-btn" id="exportResults">Export JSON</button>
+                            <button class="control-btn" id="copyResults">Copy</button>
+                        </div>
+                    </div>
+                    <div class="results-container" id="resultsContainer">
+                        <div class="empty-results">
+                            <div class="empty-icon">📊</div>
+                            <h3>No Results Yet</h3>
+                            <p>Configure your data and rules, then click "Process" to see results</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📥</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="inputCount">0</div>
+                            <div class="stat-label">Input Records</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚙️</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="rulesCount">0</div>
+                            <div class="stat-label">Active Rules</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📤</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="outputCount">0</div>
+                            <div class="stat-label">Output Records</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="processingTime">0ms</div>
+                            <div class="stat-label">Processing Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="documentation-section">
+                <div class="section-header">
+                    <h2>Documentation & Examples</h2>
+                    <button class="control-btn" id="toggleDocs">Show/Hide</button>
+                </div>
+                <div class="docs-content" id="docsContent">
+                    <div class="docs-grid">
+                        <div class="doc-card">
+                            <h3>Include Rule</h3>
+                            <p>Filter records that match specified criteria</p>
+                            <pre><code>{
+  "include": [
+    {"name": "John"},
+    {"status": "active"}
+  ]
+}</code></pre>
+                        </div>
+                        <div class="doc-card">
+                            <h3>Exclude Rule</h3>
+                            <p>Remove records that match specified criteria</p>
+                            <pre><code>{
+  "exclude": [
+    {"name": "John", "email": "john@test.com"}
+  ]
+}</code></pre>
+                        </div>
+                        <div class="doc-card">
+                            <h3>Sort Rule</h3>
+                            <p>Sort records by specified fields</p>
+                            <pre><code>{
+  "sortBy": ["name", "email"]
+}</code></pre>
+                        </div>
+                        <div class="doc-card">
+                            <h3>Limit Rule</h3>
+                            <p>Limit the number of output records</p>
+                            <pre><code>{
+  "limit": 10
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="test-runner" id="testRunner">
+        <div class="test-header">
+            <h3>Unit Tests</h3>
+            <button class="control-btn" id="runTests">Run Tests</button>
+        </div>
+        <div class="test-results" id="testResults"></div>
+    </div>
+
+    <script src="src/js/data-processor/core/types.js"></script>
+    <script src="src/js/data-processor/core/functional-utils.js"></script>
+    <script src="src/js/data-processor/rules/base-rule.js"></script>
+    <script src="src/js/data-processor/rules/include-rule.js"></script>
+    <script src="src/js/data-processor/rules/exclude-rule.js"></script>
+    <script src="src/js/data-processor/rules/sort-rule.js"></script>
+    <script src="src/js/data-processor/rules/limit-rule.js"></script>
+    <script src="src/js/data-processor/rules/transform-rule.js"></script>
+    <script src="src/js/data-processor/core/rule-registry.js"></script>
+    <script src="src/js/data-processor/core/data-processor.js"></script>
+    <script src="src/js/data-processor/tests/unit-tests.js"></script>
+    <script src="src/js/data-processor/ui/data-processor-ui.js"></script>
+</body>
+</html>

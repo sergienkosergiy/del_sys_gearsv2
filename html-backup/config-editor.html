@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Editor</title>
+    <link rel="stylesheet" href="src/styles/config-editor.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="title">Configuration Editor</h1>
+        </header>
+
+        <main class="editor-container">
+            <div class="editor-panel">
+                <div class="panel-header">
+                    <h2>JSON Configuration</h2>
+                    <div class="editor-controls">
+                        <button class="control-btn" id="validateBtn">Validate</button>
+                        <button class="control-btn" id="formatBtn">Format</button>
+                        <button class="control-btn primary" id="saveBtn">Save</button>
+                    </div>
+                </div>
+                <div class="editor-wrapper">
+                    <textarea id="configEditor" class="config-editor" spellcheck="false"></textarea>
+                    <div class="line-numbers" id="lineNumbers"></div>
+                </div>
+                <div class="validation-status" id="validationStatus"></div>
+            </div>
+
+            <div class="preview-panel">
+                <div class="panel-header">
+                    <h2>Live Preview</h2>
+                    <div class="preview-controls">
+                        <button class="control-btn" id="previewBtn">Preview Flow</button>
+                        <button class="control-btn" id="testBtn">Test All Paths</button>
+                    </div>
+                </div>
+                <div class="preview-content" id="previewContent">
+                    <div class="empty-preview">
+                        <div class="empty-icon">⚙️</div>
+                        <h3>Configuration Preview</h3>
+                        <p>Edit the JSON configuration to see a live preview of the questionnaire flow</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/js/questionnaire-engine.js"></script>
+    <script src="src/js/path-analyzer-engine.js"></script>
+    <script src="src/js/config-editor.js"></script>
+</body>
+</html>

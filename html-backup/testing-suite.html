@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Suite</title>
+    <link rel="stylesheet" href="src/styles/testing-suite.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="title">Testing Suite</h1>
+        </header>
+
+        <main class="testing-container">
+            <div class="test-controls">
+                <div class="control-group">
+                    <h3>Test Configuration</h3>
+                    <div class="control-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="validateConfig" checked>
+                            <span>Validate Configuration</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="testAllPaths" checked>
+                            <span>Test All Paths</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="testEngineLogic" checked>
+                            <span>Test Engine Logic</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="performanceTest">
+                            <span>Performance Testing</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="run-tests-btn" id="runTestsBtn">Run All Tests</button>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <h2>Test Results</h2>
+                    <div class="test-summary" id="testSummary">
+                        <div class="summary-item">
+                            <span class="summary-label">Passed:</span>
+                            <span class="summary-value passed" id="passedCount">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Failed:</span>
+                            <span class="summary-value failed" id="failedCount">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Total:</span>
+                            <span class="summary-value total" id="totalCount">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-results" id="testResults">
+                    <div class="empty-results">
+                        <div class="empty-icon">🧪</div>
+                        <h3>No Tests Run Yet</h3>
+                        <p>Click "Run All Tests" to start the automated testing suite</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/js/questionnaire-config.js"></script>
+    <script src="src/js/questionnaire-engine.js"></script>
+    <script src="src/js/path-analyzer-engine.js"></script>
+    <script src="src/js/testing-suite-engine.js"></script>
+    <script src="src/js/testing-suite.js"></script>
+</body>
+</html>
