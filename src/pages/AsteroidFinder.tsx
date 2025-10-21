@@ -49,11 +49,24 @@ export default function AsteroidFinder() {
               <p className="subtitle">Advanced space exploration with intelligent probe deployment</p>
             </div>
             <div className="header-image">
-              <img
-                src="https://images.pexels.com/photos/39665/solar-system-emergence-spitzer-telescope-telescope-39665.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt="Asteroid in space"
-                className="asteroid-preview"
-              />
+              <div className="asteroid-container">
+                <img
+                  src="/изображение.png"
+                  alt="Asteroid in space"
+                  className="asteroid-preview"
+                />
+                <div className="glow-effect"></div>
+                <div className="particle-field">
+                  {[...Array(20)].map((_, i) => (
+                    <div key={i} className="particle" style={{
+                      '--x': `${Math.random() * 100}%`,
+                      '--y': `${Math.random() * 100}%`,
+                      '--delay': `${Math.random() * 3}s`,
+                      '--duration': `${3 + Math.random() * 2}s`
+                    } as React.CSSProperties}></div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </header>
